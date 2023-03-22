@@ -1,1 +1,5 @@
+Models\Customers.class
 com\mycompany\soap\service\StudentService.class
+Controller\CustomerController.class
+Database\DBconnection.class
+Services\CustomerService.class
