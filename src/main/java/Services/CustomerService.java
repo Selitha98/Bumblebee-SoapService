@@ -26,4 +26,11 @@ public class CustomerService {
         return cus_controller.customerRegister(customer);
         
     }
+    
+    @WebMethod(operationName = "loginCustomer")
+    public Customers loginCustomer(@WebParam(name = "id") String id,
+    @WebParam(name = "password")String password)  {
+    CustomerController customeOpe=new CustomerController();
+    return  customeOpe.Login(id, password);
+    }
 }

@@ -36,4 +36,34 @@ public class CustomerController {
          
         return false;
     }
+    
+    public Customers Login(String id,String password){
+        
+        final Connection connection = DBconnection.getConnection();
+        String sql_query="SELECT*FROM registor WHERE id=? and password=?";
+        Customers customer=null;
+        
+        
+        try{
+            PreparedStatement stmt = connection.prepareStatement(sql_query);
+            stmt.setString(1, id);
+            stmt.setString(2, password);
+            
+            ResultSet rs=stmt.executeQuery();
+            
+            while(rs.next()) {
+				
+				
+		customer = new Customers();
+		customer.setCustomer_id(id);
+		customer.setPassword(password);
+		customer.setIsValide(true);
+				
+		}
+            
+        }catch(Exception ex){
+            System.out.println("ERROR"+ex);
+        }
+        return customer;
+    }
 }
